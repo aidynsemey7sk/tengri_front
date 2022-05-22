@@ -1,13 +1,25 @@
 <template>
     <div class="news-card">
+        <router-link v-bind:to="get_absolute_url ? get_absolute_url : ''" class="my-link">
         <div class="news-card__image-container"><img v-bind:src="(pathToImage)" alt=""></div>
-        <!-- <img v-bind:src="(pathToImage)" alt="" class="news-card__image-container"> -->
         <span class="news-cart__title">{{title}}</span>
-        <ul class="news-cart__data-list">
-            <li><time>{{date}}</time></li>
-            <li>1352</li>
-            <li>7</li>
+        <!-- <div class="data-list">
+            <ul class="my-ul">
+                <li class="my-li">{{date}}</li>
+                <li class="my-li">
+                    <i class="eye"></i><span class="my-span">{{views}}</span>
+                </li>
+                <li class="my-li">
+                    <i class="comments"></i><span>{{comments_count.length}}</span>
+                </li>
+            </ul>
+        </div> -->
+        <ul class="data">
+         <li>{{date}}</li>
+         <li><span class="icon_eye"></span><span class="data-info">{{views}}</span></li>
+         <!-- <li><span class="icon_comments"></span><span class="data-info">{{comments_count.length}}</span></li> -->
         </ul>
+        </router-link>
     </div>
 </template>
 
@@ -18,8 +30,9 @@ export default {
         id: Number,
         thumbnail: String,
         date: String,
-
-        // isOpen: Boolean,
+        get_absolute_url: String,
+        views: Number,
+        comments_count: Array,
     },
     data() {
         return {
@@ -29,22 +42,11 @@ export default {
     methods: {
 
     },
-    mounted() {
-        // console.log(this.thumbnail)
-    }
-    
 }
 </script>
 
 
-<style>
-.nw-link {
-    background-color: #ffffff;
-    height: 100%;
-    width: 100%;
-}
-
-
+<style scoped>
 
 .news-card {
     /* background-color: #ffffff; */
@@ -68,10 +70,14 @@ export default {
     color: #000000; 
 }
 
-.news-cart__data-list {
+.news-card__image-container {
+    max-height: 160px;
+    max-width: 285px;
+}
+
+.data-list {
     max-height: 18px;
     max-width: 285px;
-    display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
     vertical-align: baseline;
@@ -79,18 +85,93 @@ export default {
     color: #575757;
 }
 
-.news-card__image-container {
-    max-height: 160px;
-    max-width: 285px;
+.my-ul {
+    /* margin:auto; */
+    display: flex;
+    
 }
 
-li::after {
-    content: "";
-    border-radius: 100%;
-    width: 2px;
-    height: 2px;
-    background-color: #575757;
+.my-li {
+    /* display:table-cell; */
+    align-items: center;
+    justify-content: center;
+}
+
+.eye {
+    background-image: url('../assets/eye-dark.svg');
+}
+
+.eye {
+    width: 17px;
+    height: 14px;
+    margin: 0 5px 0 0;
     display: inline-block;
-    margin: 0 10px;  
+}
+
+.my-span {
+    vertical-align: center;
+}
+
+.comments {
+    background-image: url('../assets/comment-dark.svg');
+}
+
+.comments {
+    width: 15px;
+    height: 14px;
+    margin: 0 5px -5px 0;
+    display: inline-block;
+}
+
+.my-link {
+    text-decoration: none;
+}
+
+.data {
+    margin: 10px 0 10px 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    color: #575757;
+    font-size: 14px;
+    justify-content: flex-start;
+    height: 20px;
+}
+
+.data li {
+    display: flex;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    margin-right: 15px;
+}
+
+.icon_eye {
+        position: relative;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-image: url('../assets/eye-dark.svg');
+        background-size: 12px;
+        background-repeat: no-repeat;
+        /* margin-top: 2px; */
+        margin-right: 3px;
+    }
+
+.icon_comments {
+        position: relative;
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-image: url('../assets/comment-dark.svg');
+        background-size: 12px;
+        background-repeat: no-repeat;
+        /* margin-top: 2px; */
+        margin-right: 3px;
+    }
+
+.data-info {
+    font-size: 14px;
 }
 </style>

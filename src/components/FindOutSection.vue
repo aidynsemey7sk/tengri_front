@@ -1,13 +1,15 @@
 <template>
     <section class="tengri-mix tn-container">
             <div class="tn-section-header">
-                <a href="#">Почитай</a>
+                <a href="#">Узнай</a>
 
                 <ul class="tn-tag-list">
-                    <li>#Позитив</li>
-                    <li>#Жизнь</li>
-                    <li>#Шоу-бизнес</li>
-                    <li>#Фотографии</li>
+                    <li>#Коронавирус</li>
+                    <li>#Новости</li>
+                    <li>#Новости Казахстана</li>
+                    <li>#Новости мира</li>
+                    <li>#Проишествия</li>
+                    <li>#Референдум</li>
                 </ul>
             </div>
 
@@ -19,13 +21,14 @@
                 :title="item.title"
                 :id="item.id"
                 :thumbnail="item.get_thumbnail"
-                :date="item.get_date"
+                :date="item.date_added"
                 :comments_count="item.comments"
               >
               </news-card>
             </div>
         </section>
 </template>
+
 <script>
 import NewsCard from './NewsCard.vue'
 import axios from 'axios'
@@ -42,6 +45,11 @@ export default {
     mounted() {
     },
     methods: {
+        async loadNews() {
+            const response = await axios.get('https://tengrinews.herokuapp.com/')
+            
+            console.log(response.data)
+        }
     },
     created() {
 
@@ -72,7 +80,7 @@ export default {
 .tengri-mix {
     box-sizing: border-box;
     padding: 25px 8px;
-    background: #dfecdd;
+    background: #f2f4f5;
 }
 
 .tn-container {
@@ -200,5 +208,3 @@ export default {
     margin: 0;
 }
 </style>
-
-

@@ -1,6 +1,4 @@
 <template>
-
-
 <div class="main">
   <div class="basic">
   <div class="nw-link-1">
@@ -11,15 +9,12 @@
           <ul class="top-news__data">
               <li><time>{{topNews ? topNews.date_added : ''}}</time></li>
               <li>3512</li>
-              
               <li>114</li>
           </ul>
-          
-
     </router-link>
       </div>
-      <!-- <img v-bind:src="topNews" alt="" class="topNewsImage"> -->
   </div>
+
   <news-card 
   v-for="item in info"
   :key="item"
@@ -27,15 +22,13 @@
   :id="item.id"
   :thumbnail="item.get_thumbnail"
   :date="item.date_added"
-
   ></news-card>
 
-  <!-- <div class="grid-item" v-for="item in news" :key="item">{{item}}</div> -->
 </div>
 
   <div class="rigth-column">
       <div class="rigth-column-banner">
-          
+          <img src="../assets/main-banner.png" alt="">
       </div>
       <div class="switch">
           <p>переключатель</p>
@@ -127,7 +120,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .main {
     display: flex;
 }
@@ -135,23 +128,12 @@ export default {
 .basic {
     width: 900px;
     height: 1074px;
-
     display: grid;
-    /* column-gap: 50px;
-    row-gap: 50px; */
     grid-template-columns: auto auto auto;
     place-items: center;
     gap: 20px;
-    /* grid-template-columns: 200px auto 100px; */
     grid-template-rows: auto auto auto;
 }
-
-.grid-item {
-    background-color: #ffffff;
-    height: 100%;
-    width: 100%;
-}
-
 
 .nw-link-1 {
     grid-column-start: 1;
@@ -207,11 +189,11 @@ export default {
     height: 100%;
 }
 
-.top-news {
+/* .top-news {
     z-index: 0;
     position: relative;
     width: 100%;
-}
+} */
 
 .top-news__title {
     position: absolute;

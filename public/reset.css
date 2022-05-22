@@ -24,6 +24,15 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
+.post {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 /* make sure to set some focus styles for accessibility */
 :focus {
     outline: 0;

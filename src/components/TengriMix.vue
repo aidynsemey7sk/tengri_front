@@ -1,7 +1,7 @@
 <template>
     <section class="tengri-mix tn-container">
             <div class="tn-section-header">
-                <a href="#">Почитай</a>
+                <a href="#">TengriMIX</a>
 
                 <ul class="tn-tag-list">
                     <li>#Позитив</li>
@@ -13,66 +13,69 @@
 
 
             <div class="article-grid">
-                <news-card
-                v-for="item in info"
-                :key="item"
-                :title="item.title"
-                :id="item.id"
-                :thumbnail="item.get_thumbnail"
-                :date="item.get_date"
-                :comments_count="item.comments"
-              >
-              </news-card>
+                <div class="tn-article-item">
+                    <div class="image-container">
+                        <img src="../assets/photo_396149.jpeg.webp" alt="" class="card-image">
+                    </div>
+                    <div class="article-title">
+                        <span class="tn-article-title">
+                            Из Львова в Кудукагаш. Как казахстанец нашел свою любовь на фронте
+                        </span>
+                    </div>
+                    <ul class="data-list">
+                        <li>Вчера</li>
+                        <li>3</li>
+                        <li>12</li>
+                    </ul>
+                </div>
+
+                <div class="tn-article-item">
+                    <div class="image-container">
+                        <img src="../assets/photo_396149.jpeg.webp" alt="" class="card-image">
+                    </div>
+                    <div class="article-title">
+                        <span class="tn-article-title">
+                            Из Львова в Кудукагаш. Как казахстанец нашел свою любовь на фронте
+                        </span>
+                    </div>
+                    <ul class="data-list">
+                        <li>Вчера</li>
+                        <li>3</li>
+                        <li>12</li>
+                    </ul>
+                </div>
+
+                <div class="tn-article-item">
+                    <div class="image-container">
+                        <img src="../assets/photo_396149.jpeg.webp" alt="" class="card-image">
+                    </div>
+                    <div class="article-title">
+                        <span class="tn-article-title">
+                            Из Львова в Кудукагаш. Как казахстанец нашел свою любовь на фронте
+                        </span>
+                    </div>
+                    <ul class="data-list">
+                        <li>Вчера</li>
+                        <li>3</li>
+                        <li>12</li>
+                    </ul>
+                </div>
+
+                <div class="tn-article-item-banner">
+                    <img src="../assets/Tn-Mix-banner.webp" alt="" class="item-banner">
+
+                    <div class="banner-title"></div>
+                </div>
             </div>
         </section>
 </template>
-<script>
-import NewsCard from './NewsCard.vue'
-import axios from 'axios'
 
-export default {
-    components: {
-       'news-card': NewsCard,
-    },
-    data() {
-        return {
-            info: [],
-        }
-    },
-    mounted() {
-    },
-    methods: {
-    },
-    created() {
-
-        // axios
-        //     .get('http://127.0.0.1:8000/read/')
-        //     .then(response => {
-        //         console.log(response)
-        //         this.info = response.data
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     });
-
-        axios
-            .get('https://tengrinews.herokuapp.com/read/')
-            .then(response => {
-                console.log(response)
-                this.info = response.data
-            })
-            .catch(err => {
-                console.log(err)
-            });
-    }
-}
-</script>
 
 <style scoped>
 .tengri-mix {
     box-sizing: border-box;
     padding: 25px 8px;
-    background: #dfecdd;
+    background: #fbca4a;
 }
 
 .tn-container {
@@ -200,5 +203,3 @@ export default {
     margin: 0;
 }
 </style>
-
-
