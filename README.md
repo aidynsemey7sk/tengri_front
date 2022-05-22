@@ -1,5 +1,6 @@
 # blog
-### Газета на vue.js 3 https://tengri-frontend.herokuapp.com/
+### Фронтенд газеты на vue.js 3 
+## Cсылка на сайт: https://tengri-frontend.herokuapp.com/
 
 ## Project setup
 ```
